@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'pl.edu.pwr.bum.simulation'
@@ -9,9 +10,13 @@ repositories {
     mavenCentral()
 }
 
+mainClassName = 'pl.edu.pwr.bum.simulation.app.Application'
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    implementation group: 'com.soebes.maven.plugins', name: 'iterator-maven-plugin', version: '0.5.1'
 }
 
 test {
