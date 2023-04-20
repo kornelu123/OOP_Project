@@ -11,8 +11,6 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("cwel");
         List<RandomEvent> randomEventsJSON = RandomEventParser.parseJSONFile();
-        System.out.println(randomEventsJSON);
     }
 }
