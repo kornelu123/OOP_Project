@@ -1,8 +1,6 @@
 package pl.edu.pwr.bum.simulation.random.events;
 
-import pl.edu.pwr.bum.simulation.stats.locations.SimulationStats;
-
-import java.util.ArrayList;
+import pl.edu.pwr.bum.simulation.app.SimulationStats;
 
 public class RandomEvent implements Random {
     private Long id;
@@ -10,7 +8,7 @@ public class RandomEvent implements Random {
     SimulationStats.FieldType fieldType;
     public String description;
 
-    public RandomEvent(Boolean hasBeen, SimulationStats.FieldType fieldType, String description) {
+    public RandomEvent(Long id,Boolean hasBeen, SimulationStats.FieldType fieldType, String description) {
         this.id = id;
         this.hasBeen = hasBeen;
         this.fieldType = fieldType;

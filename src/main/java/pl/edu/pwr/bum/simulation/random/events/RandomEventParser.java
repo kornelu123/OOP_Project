@@ -11,8 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import pl.edu.pwr.bum.simulation.SimulationField;
-import pl.edu.pwr.bum.simulation.stats.locations.SimulationStats;
+import pl.edu.pwr.bum.simulation.app.SimulationStats;
 
 public class RandomEventParser {
 
@@ -47,7 +46,7 @@ public class RandomEventParser {
                 System.out.println("Bad JSON file , ID : " + id);
                 break;
             }
-            RandomEvent randomEvent = new RandomEvent(hasBeen,fieldType,description);
+            RandomEvent randomEvent = new RandomEvent(id ,hasBeen,fieldType,description);
             randomEventList.add(randomEvent);
         }
         return randomEventList;

@@ -12,8 +12,19 @@ public class MainBum extends Bum{
     public float getDrunkMeter(){
         return this.drunkMeter/1000;
     }
+    public enum operation{
+        ADD,
+        REMOVE
+    }
 
     public Boolean isBumSober(){
         return this.drunkMeter <= 0;
+    }
+
+    public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation){
+        switch(operation){
+            case ADD -> this.drunkMeter += howMuch;
+            case REMOVE -> this.drunkMeter -= howMuch;
+        }
     }
 }
