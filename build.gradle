@@ -17,6 +17,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     implementation group: 'com.soebes.maven.plugins', name: 'iterator-maven-plugin', version: '0.5.1'
+    implementation 'com.acidmanic:console-tools:1.0.0'
 }
 
 test {
