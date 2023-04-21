@@ -12,8 +12,8 @@ PWR W4N ITE 2022/2027. </br>
         hasBeen: false</br>
         fieldType:(LIQUOR_STORE ,EMPTY_FIELD , ACTION_FIELD , SOBERING_STATION , SLODOWA)</br>
         description: (description of event)</br>
-        operation: ADD / REMOVE
-        howMuch: int(ranging from 2-10~)
+        operation: ADD / REMOVE </br>
+        howMuch: int(ranging from 2-10~) </br>
         *come up with some that would help creating sim*,</br>
     } </br>
     => Write some dialogues with the NPC's </br>
