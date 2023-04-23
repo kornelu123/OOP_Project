@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.soebes.maven.plugins:iterator-maven-plugin:0.5.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.soebes.maven.plugins/iterator-maven-plugin/0.5.1/3af5f4a47e15c1560f883ea7dd5db8448a5656c8/iterator-maven-plugin-0.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.soebes.maven.plugins/iterator-maven-plugin/0.5.1/dab1c014a41921701c8533f6100d229df47b39c3/iterator-maven-plugin-0.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
