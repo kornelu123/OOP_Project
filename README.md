@@ -20,4 +20,5 @@ PWR W4N ITE 2022/2027. </br>
     => Maybe se some terminal drawing library (https://github.com/Acidmanic/console-tools) </br>
     => For terminal images use https://manytools.org/hacker-tools/convert-images-to-ascii-art/ (Or by hand if you want) </br>
     => Come up with map layout , names and locations (Probably some array) </br>
+    => TEST(delete)
 
