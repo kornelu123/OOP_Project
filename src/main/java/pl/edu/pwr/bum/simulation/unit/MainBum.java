@@ -4,9 +4,11 @@ import pl.edu.pwr.bum.simulation.Simulation;
 
 public class MainBum extends Bum{
     private int drunkMeter;
-    public MainBum(String name, int strength) {
+    private int bottlesCount;
+    public MainBum(String name, int strength,int drunkMeter, int amountOfBottles) {
         super(name, strength);
-        this.drunkMeter = 300;
+        this.drunkMeter = drunkMeter;
+        this.bottlesCount = amountOfBottles;
     }
 
     public float getDrunkMeter(){
@@ -21,10 +23,46 @@ public class MainBum extends Bum{
         return this.drunkMeter <= 0;
     }
 
+    public void drinkBeer(int howMuch){
+        this.drunkMeter += 100*howMuch;
+    }
+
     public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation){
         switch(operation){
-            case ADD -> this.drunkMeter += howMuch;
-            case REMOVE -> this.drunkMeter -= howMuch;
+            case ADD -> {
+                this.drunkMeter += howMuch;
+                break;
+            }
+            case REMOVE -> {
+                this.drunkMeter -= howMuch;
+                break;
+            }
+            default -> {
+                System.out.println("NO_OPERATION");
+                break;
+            }
         }
+    }
+
+    public void handleBottlesCountOperation(int howMuch, MainBum.operation operation){
+        switch(operation){
+            case ADD -> {
+                this.bottlesCount += howMuch;
+                break;
+            }
+            case REMOVE -> {
+                this.bottlesCount -= howMuch;
+                break;
+            }
+            default -> {
+                System.out.println("NO_OPERATION");
+                break;
+            }
+
+        }
+    }
+
+    public int getBottlesCount(){
+        return this.bottlesCount;
     }
 }
