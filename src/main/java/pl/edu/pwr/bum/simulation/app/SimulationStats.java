@@ -1,22 +1,15 @@
 package pl.edu.pwr.bum.simulation.app;
 
+import pl.edu.pwr.bum.simulation.filedType.FieldType;
 import pl.edu.pwr.bum.simulation.random.events.RandomEvent;
 
 import java.util.Map;
 
 public class SimulationStats {
-    private Map<RandomEvent,SimulationStats.FieldType> randomEventMap;
-    public enum FieldType{
-        MINUS_30,
-        ACTION_FIELD,
-        EMTPY_FIELD,
-        LIQUOR_STORE,
-        SOBERING_STATION,
-        SLODOWA,
-        NULL
-    }
+    private Map<RandomEvent,FieldType> randomEventMap;
 
-    public SimulationStats(Map<RandomEvent,SimulationStats.FieldType> randomEventMap) {
+
+    public SimulationStats(Map<RandomEvent, FieldType> randomEventMap) {
         this.randomEventMap = randomEventMap;
     }
 }

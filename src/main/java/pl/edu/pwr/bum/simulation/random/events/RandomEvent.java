@@ -1,14 +1,15 @@
 package pl.edu.pwr.bum.simulation.random.events;
 
 import pl.edu.pwr.bum.simulation.app.SimulationStats;
+import pl.edu.pwr.bum.simulation.filedType.FieldType;
 
 public class RandomEvent implements Random {
     private Long id;
     private Boolean hasBeen;
-    SimulationStats.FieldType fieldType;
+    FieldType fieldType;
     public String description;
 
-    public RandomEvent(Long id,Boolean hasBeen, SimulationStats.FieldType fieldType, String description) {
+    public RandomEvent(Long id, Boolean hasBeen, FieldType fieldType, String description) {
         this.id = id;
         this.hasBeen = hasBeen;
         this.fieldType = fieldType;
