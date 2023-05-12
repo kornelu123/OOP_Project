@@ -1,18 +1,29 @@
 package pl.edu.pwr.bum.simulation.app;
 
 import pl.edu.pwr.bum.simulation.filedType.FieldType;
+import pl.edu.pwr.bum.simulation.map.MapField;
 import pl.edu.pwr.bum.simulation.random.events.RandomEvent;
+import pl.edu.pwr.bum.simulation.unit.MainBum;
 
 import java.util.Map;
 
 public class SimulationStats {
-    private Map<RandomEvent,FieldType> randomEventMap;
 
+    private Integer currentRandomEvent = 0;
+    private Map<Integer,RandomEvent> randomEventMap;
 
-    public SimulationStats(Map<RandomEvent, FieldType> randomEventMap) {
+    public MainBum kloszard;
 
-    private int x;
-    private int y;
+    public MapField currentField ;
+    public SimulationStats(Map<Integer, RandomEvent> randomEventMap, MainBum kloszard) {
+        this.x = 7;
+        this.y = 8;
+        this.randomEventMap = randomEventMap;
+        this.kloszard = kloszard;
+    }
+
+    public int x;
+    public int y;
       
     public enum FieldType{
         MINUS_30,
@@ -56,9 +67,9 @@ public class SimulationStats {
         }
     }
 
-    public SimulationStats(Map<RandomEvent, FieldType> randomEventMap) {
-        this.x = 7;
-        this.y = 8;
-        this.randomEventMap = randomEventMap;
+    public RandomEvent getRandomEvent(){
+        this.currentRandomEvent++;
+        return this.randomEventMap.get(currentRandomEvent);
     }
+
 }

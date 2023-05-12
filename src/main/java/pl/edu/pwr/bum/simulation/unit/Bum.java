@@ -1,7 +1,7 @@
 package pl.edu.pwr.bum.simulation.unit;
 
 public class Bum {
-    private final String name;
+    public final String name;
     final int strength;
 
     public Bum(String name, int strength) {

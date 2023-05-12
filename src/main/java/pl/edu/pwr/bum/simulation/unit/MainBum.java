@@ -11,8 +11,8 @@ public class MainBum extends Bum{
         this.bottlesCount = amountOfBottles;
     }
 
-    public float getDrunkMeter(){
-        return this.drunkMeter/1000;
+    public int getDrunkMeter(){
+        return this.drunkMeter;
     }
     public enum operation{
         ADD,
@@ -21,10 +21,6 @@ public class MainBum extends Bum{
 
     public Boolean isBumSober(){
         return this.drunkMeter <= 0;
-    }
-
-    public void drinkBeer(int howMuch){
-        this.drunkMeter += 100*howMuch;
     }
 
     public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation){
