@@ -47,6 +47,10 @@ public class MainBum extends Bum{
     public void handleBottlesCountOperation(int howMuch, MainBum.operation operation){
         switch(operation){
             case ADD -> {
+                if(this.bottlesCount + howMuch <= this.strength){
+                    this.bottlesCount = this.strength;
+                    break;
+                }
                 this.bottlesCount += howMuch;
                 break;
             }
