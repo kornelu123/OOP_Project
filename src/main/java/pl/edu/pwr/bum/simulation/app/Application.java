@@ -22,7 +22,7 @@ public class Application {
         SimulationStats simStat = new SimulationStats(randomEventMap,kloszard);
         TableHandler.printStatsTable(simStat);
         Thread.sleep(5000);
-        DrinkBeerAnimation beerAnimation = new DrinkBeerAnimation();
-        //beerAnimation.printAnimation();
+        simStat.kloszard.handleDrunkMeterOperation(3*100, MainBum.operation.ADD);
+        TableHandler.printStatsTable(simStat);
     }
 }

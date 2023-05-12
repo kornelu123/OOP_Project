@@ -1,6 +1,8 @@
 package pl.edu.pwr.bum.simulation.unit;
 
 import pl.edu.pwr.bum.simulation.Simulation;
+import pl.edu.pwr.bum.simulation.random.events.animation.Animation;
+import pl.edu.pwr.bum.simulation.random.events.animation.DrinkBeerAnimation;
 
 public class MainBum extends Bum{
     private int drunkMeter;
@@ -23,7 +25,7 @@ public class MainBum extends Bum{
         return this.drunkMeter <= 0;
     }
 
-    public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation){
+    public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation) throws InterruptedException {
         switch(operation){
             case ADD -> {
                 this.drunkMeter += howMuch;
@@ -38,6 +40,9 @@ public class MainBum extends Bum{
                 break;
             }
         }
+        Animation.cleanScreen();
+        DrinkBeerAnimation beerAnimation = new DrinkBeerAnimation();
+        beerAnimation.printAnimation();
     }
 
     public void handleBottlesCountOperation(int howMuch, MainBum.operation operation){

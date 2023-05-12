@@ -45,6 +45,7 @@ public class SimulationStats {
         }else {
             this.y++;
         }
+        this.currentField = map.getCurrentField(this.x,this.y);
     }
 
     public void goDown(){
@@ -53,6 +54,7 @@ public class SimulationStats {
         }else {
             this.y--;
         }
+        this.currentField = map.getCurrentField(this.x,this.y);
     }
 
     public void goLeft(){
@@ -61,6 +63,7 @@ public class SimulationStats {
         }else {
             this.x--;
         }
+        this.currentField = map.getCurrentField(this.x,this.y);
     }
 
     public void goRight(){
@@ -69,6 +72,7 @@ public class SimulationStats {
         }else {
             this.x++;
         }
+        this.currentField = map.getCurrentField(this.x,this.y);
     }
 
     public RandomEvent getRandomEvent(){
