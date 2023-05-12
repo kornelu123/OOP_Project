@@ -1,13 +1,19 @@
 package pl.edu.pwr.bum.simulation.app;
 
+import pl.edu.pwr.bum.simulation.filedType.FieldType;
 import pl.edu.pwr.bum.simulation.random.events.RandomEvent;
 
 import java.util.Map;
 
 public class SimulationStats {
+    private Map<RandomEvent,FieldType> randomEventMap;
+
+
+    public SimulationStats(Map<RandomEvent, FieldType> randomEventMap) {
+
     private int x;
     private int y;
-    private Map<RandomEvent,SimulationStats.FieldType> randomEventMap;
+      
     public enum FieldType{
         MINUS_30,
         ACTION_FIELD,
