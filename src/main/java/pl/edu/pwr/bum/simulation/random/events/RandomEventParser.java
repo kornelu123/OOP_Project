@@ -40,7 +40,7 @@ public class RandomEventParser {
         Iterator<JSONObject> iterator = jsonArray.iterator();
         while(iterator.hasNext()){
             JSONObject jsonObject = iterator.next();
-            Long id =(Long) jsonObject.get("id");
+            Long id =  (Long) jsonObject.get("id");
             boolean hasBeen = booleanParser((String) jsonObject.get("hasBeen"));
             FieldType fieldType = fieldTypeParser((String) jsonObject.get("fieldType"));
             String description = (String) jsonObject.get("description");
@@ -49,7 +49,7 @@ public class RandomEventParser {
                 System.out.println("Bad JSON file , ID : " + id);
                 break;
             }
-            RandomEvent randomEvent = new RandomEvent(id, hasBeen, fieldType, description);
+            RandomEvent randomEvent = new RandomEvent(Math.toIntExact(id), hasBeen, fieldType, description);
             randomEventList.add(randomEvent);
         }
         return randomEventList;

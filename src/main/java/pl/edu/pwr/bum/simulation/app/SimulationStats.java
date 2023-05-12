@@ -1,18 +1,33 @@
 package pl.edu.pwr.bum.simulation.app;
 
 import pl.edu.pwr.bum.simulation.filedType.FieldType;
+import pl.edu.pwr.bum.simulation.map.MapArray;
+import pl.edu.pwr.bum.simulation.map.MapField;
 import pl.edu.pwr.bum.simulation.random.events.RandomEvent;
+import pl.edu.pwr.bum.simulation.unit.MainBum;
 
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 public class SimulationStats {
-    private Map<RandomEvent,FieldType> randomEventMap;
 
+    private Integer currentRandomEvent = 0;
+    private Map<Integer,RandomEvent> randomEventMap;
 
-    public SimulationStats(Map<RandomEvent, FieldType> randomEventMap) {
+    private MapArray map;
 
-    private int x;
-    private int y;
+    public MainBum kloszard;
+
+    public MapField currentField ;
+    public SimulationStats(Map<Integer, RandomEvent> randomEventMap, MainBum kloszard) throws FileNotFoundException {
+        this.map = new MapArray();
+        this.currentField = map.getCurrentField(this.x, this.y);
+        this.randomEventMap = randomEventMap;
+        this.kloszard = kloszard;
+    }
+
+    public int x = 8;
+    public int y = 7;
       
     public enum FieldType{
         MINUS_30,
@@ -56,9 +71,9 @@ public class SimulationStats {
         }
     }
 
-    public SimulationStats(Map<RandomEvent, FieldType> randomEventMap) {
-        this.x = 7;
-        this.y = 8;
-        this.randomEventMap = randomEventMap;
+    public RandomEvent getRandomEvent(){
+        this.currentRandomEvent++;
+        return this.randomEventMap.get(currentRandomEvent);
     }
+
 }
