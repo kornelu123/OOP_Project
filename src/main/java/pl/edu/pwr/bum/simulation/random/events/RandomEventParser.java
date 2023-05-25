@@ -35,6 +35,7 @@ public class RandomEventParser {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         List<RandomEvent> randomEventList = new ArrayList<RandomEvent>();
 
         Iterator<JSONObject> iterator = jsonArray.iterator();
@@ -44,12 +45,13 @@ public class RandomEventParser {
             boolean hasBeen = booleanParser((String) jsonObject.get("hasBeen"));
             FieldType fieldType = fieldTypeParser((String) jsonObject.get("fieldType"));
             String description = (String) jsonObject.get("description");
+            Long bottleAmount = (Long) jsonObject.get("bottleAmount");
             System.out.println(fieldType);
             if(fieldType == FieldType.NULL){
                 System.out.println("Bad JSON file , ID : " + id);
                 break;
             }
-            RandomEvent randomEvent = new RandomEvent(Math.toIntExact(id), hasBeen, fieldType, description);
+            RandomEvent randomEvent = new RandomEvent(Math.toIntExact(id), hasBeen, fieldType, description, bottleAmount);
             randomEventList.add(randomEvent);
         }
         return randomEventList;

@@ -1,17 +1,19 @@
 package pl.edu.pwr.bum.simulation.unit;
 
 import pl.edu.pwr.bum.simulation.Simulation;
+import pl.edu.pwr.bum.simulation.random.events.animation.Animation;
+import pl.edu.pwr.bum.simulation.random.events.animation.DrinkBeerAnimation;
 
 public class MainBum extends Bum{
-    private int drunkMeter;
-    private int bottlesCount;
-    public MainBum(String name, int strength,int drunkMeter, int amountOfBottles) {
-        super(name, strength);
+    private Long drunkMeter;
+    private Long bottlesCount;
+    public MainBum(String name, int strength,Long drunkMeter, Long amountOfBottles) {
+        super(name, (long) strength);
         this.drunkMeter = drunkMeter;
         this.bottlesCount = amountOfBottles;
     }
 
-    public int getDrunkMeter(){
+    public Long getDrunkMeter(){
         return this.drunkMeter;
     }
     public enum operation{
@@ -19,11 +21,7 @@ public class MainBum extends Bum{
         REMOVE
     }
 
-    public Boolean isBumSober(){
-        return this.drunkMeter <= 0;
-    }
-
-    public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation){
+    public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation) throws InterruptedException {
         switch(operation){
             case ADD -> {
                 this.drunkMeter += howMuch;
@@ -38,13 +36,16 @@ public class MainBum extends Bum{
                 break;
             }
         }
+        Animation.cleanScreen();
+        DrinkBeerAnimation beerAnimation = new DrinkBeerAnimation();
+        beerAnimation.printAnimation();
     }
 
-    public void handleBottlesCountOperation(int howMuch, MainBum.operation operation){
+    public void handleBottlesCountOperation(Long howMuch, MainBum.operation operation){
         switch(operation){
             case ADD -> {
                 if(this.bottlesCount + howMuch <= this.strength){
-                    this.bottlesCount = this.strength;
+                    this.bottlesCount = (Long) this.strength;
                     break;
                 }
                 this.bottlesCount += howMuch;
@@ -62,7 +63,12 @@ public class MainBum extends Bum{
         }
     }
 
-    public int getBottlesCount(){
+    public void buyMaxAmountOfPiwo() throws InterruptedException {
+        handleDrunkMeterOperation((int) (this.bottlesCount*100),operation.ADD);
+        this.bottlesCount = 0L;
+    }
+
+    public Long getBottlesCount(){
         return this.bottlesCount;
     }
 }

@@ -2,9 +2,9 @@ package pl.edu.pwr.bum.simulation.unit;
 
 public class Bum {
     public final String name;
-    final int strength;
+    final Long strength;
 
-    public Bum(String name, int strength) {
+    public Bum(String name, Long strength) {
         this.name = name;
         this.strength = strength;
     }

@@ -9,12 +9,15 @@ public class RandomEvent implements Random {
     FieldType fieldType;
     public String description;
 
+    public Long bottleCount;
 
-    public RandomEvent(Integer id, Boolean hasBeen, FieldType fieldType, String description) {
+
+    public RandomEvent(Integer id, Boolean hasBeen, FieldType fieldType, String description,Long bottleCount) {
         this.id = id;
         this.hasBeen = hasBeen;
         this.fieldType = fieldType;
         this.description = description;
+        this.bottleCount = bottleCount;
     }
 
     @Override
