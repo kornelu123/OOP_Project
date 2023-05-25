@@ -7,7 +7,7 @@ public class MapArray {
     private ArrayList<MapField> map;
 
     public MapArray() throws FileNotFoundException {
-        this.map = (ArrayList<MapField>) mapParser.parseJSONFile();
+        this.map = (ArrayList<MapField>) MapParser.parseJSONFile();
     }
 
     public MapField getCurrentField(int x , int y){

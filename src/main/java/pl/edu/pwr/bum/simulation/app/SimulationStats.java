@@ -4,14 +4,17 @@ import pl.edu.pwr.bum.simulation.filedType.FieldType;
 import pl.edu.pwr.bum.simulation.map.MapArray;
 import pl.edu.pwr.bum.simulation.map.MapField;
 import pl.edu.pwr.bum.simulation.random.events.RandomEvent;
+import pl.edu.pwr.bum.simulation.random.events.RandomEventParser;
 import pl.edu.pwr.bum.simulation.unit.MainBum;
 
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SimulationStats {
 
-    private Integer currentRandomEvent = 0;
+    private Integer currentRandomEvent = 1;
     private Map<Integer,RandomEvent> randomEventMap;
 
     private MapArray map;
@@ -26,11 +29,14 @@ public class SimulationStats {
         this.kloszard = kloszard;
     }
 
+    public void handleLiquorStore() throws InterruptedException {
+        this.kloszard.buyMaxAmountOfPiwo();
+    }
+
     public int x = 8;
     public int y = 7;
       
     public enum FieldType{
-        MINUS_30,
         ACTION_FIELD,
         EMTPY_FIELD,
         LIQUOR_STORE,
@@ -76,8 +82,29 @@ public class SimulationStats {
     }
 
     public RandomEvent getRandomEvent(){
-        this.currentRandomEvent++;
         return this.randomEventMap.get(currentRandomEvent);
+    }
+
+    public void handleActionField(){
+        RandomEvent randomEvent = randomEventMap.get(currentRandomEvent);
+        this.kloszard.handleBottlesCountOperation(randomEvent.bottleCount, MainBum.operation.ADD);
+        currentRandomEvent++;
+    }
+
+    public void handleBumDirection (){
+
+    }
+
+    static public SimulationStats initSimStats(String name, int strength, int drunkMeter, Long amoutOfBottles) throws FileNotFoundException {
+        List<RandomEvent> randomEventsJSON = RandomEventParser.parseJSONFile();
+        HashMap<Integer,RandomEvent> randomEventMap = new HashMap<Integer,RandomEvent>();
+        for (RandomEvent randomEvent: randomEventsJSON) {
+            randomEventMap.put(randomEvent.getRandomEventIndex(),randomEvent);
+        }
+        MainBum kloszard = new MainBum(name,strength, (long) drunkMeter,amoutOfBottles);
+        MapArray map = new MapArray();
+        SimulationStats simStat = new SimulationStats(randomEventMap,kloszard);
+        return simStat;
     }
 
 }

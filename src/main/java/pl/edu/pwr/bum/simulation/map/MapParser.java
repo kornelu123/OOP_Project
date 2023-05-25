@@ -15,7 +15,7 @@ import java.util.List;
 import static pl.edu.pwr.bum.simulation.filedType.FieldTypeParser.fieldTypeParser;
 
 
-public class mapParser {
+public class MapParser {
     public static List<MapField> parseJSONFile() throws FileNotFoundException {
         JSONParser parser = new JSONParser();
         Path path = Path.of("src/main/JSONFiles/mapTiles.json");
