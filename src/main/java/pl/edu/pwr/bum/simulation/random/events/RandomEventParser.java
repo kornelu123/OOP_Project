@@ -11,16 +11,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import pl.edu.pwr.bum.simulation.app.SimulationStats;
-import pl.edu.pwr.bum.simulation.filedType.FieldType;
+import pl.edu.pwr.bum.simulation.field.type.FieldType;
 
-import static pl.edu.pwr.bum.simulation.filedType.FieldTypeParser.fieldTypeParser;
+import static pl.edu.pwr.bum.simulation.field.type.FieldTypeParser.fieldTypeParser;
 
 public class RandomEventParser {
 
     public static List<RandomEvent> parseJSONFile() throws FileNotFoundException {
         JSONParser parser = new JSONParser();
-        Path path = Path.of("src/main/JSONFiles/randomEvents.json");
+        Path path = Path.of("src/main/java/pl/edu/pwr/bum/simulation/resources/randomEvents.json");
         File jsonFile = new File(path.toUri());
         JSONArray jsonArray = null;
         try (Reader reader = new FileReader(jsonFile)) {
@@ -45,7 +44,7 @@ public class RandomEventParser {
             boolean hasBeen = booleanParser((String) jsonObject.get("hasBeen"));
             FieldType fieldType = fieldTypeParser((String) jsonObject.get("fieldType"));
             String description = (String) jsonObject.get("description");
-            Long bottleAmount = (Long) jsonObject.get("bottleAmount");
+            Long bottleAmount = (Long) jsonObject.get("bottleCount");
             System.out.println(fieldType);
             if(fieldType == FieldType.NULL){
                 System.out.println("Bad JSON file , ID : " + id);

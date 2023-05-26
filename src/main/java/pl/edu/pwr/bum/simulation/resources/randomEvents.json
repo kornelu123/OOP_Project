@@ -1,0 +1,11 @@
+[{
+  "id": 1,
+  "fieldType":"ACTION_FIELD",
+  "description": "Twoj kolega zul romek jest tak pijany ze nie jest w stanie dalej chodzic , kradniesz mu 3 butelki",
+  "bottleCount": 3
+},{
+  "id": 2,
+  "fieldType":"ACTION_FIELD",
+  "description": "Podczas pijanej przechadzki ulicami Wroclawia upadasz i zbijasz butelke.",
+  "bottleCount": -1
+} ]

@@ -4,7 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import pl.edu.pwr.bum.simulation.filedType.FieldType;
+import pl.edu.pwr.bum.simulation.field.type.FieldType;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static pl.edu.pwr.bum.simulation.filedType.FieldTypeParser.fieldTypeParser;
+import static pl.edu.pwr.bum.simulation.field.type.FieldTypeParser.fieldTypeParser;
 
 
 public class MapParser {
     public static List<MapField> parseJSONFile() throws FileNotFoundException {
         JSONParser parser = new JSONParser();
-        Path path = Path.of("src/main/JSONFiles/mapTiles.json");
+        Path path = Path.of("src/main/java/pl/edu/pwr/bum/simulation/resources/mapTiles.json");
         File jsonFile = new File(path.toUri());
         JSONArray jsonArray = null;
         try (Reader reader = new FileReader(jsonFile)) {

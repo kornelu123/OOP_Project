@@ -1,4 +1,4 @@
-package pl.edu.pwr.bum.simulation.filedType;
+package pl.edu.pwr.bum.simulation.field.type;
 
 public enum FieldType {
     ACTION_FIELD,

@@ -185,7 +185,7 @@
 {"x":"3","y":"12","name":"Monopolowy","FieldType":"LIQUOR_STORE"},
 {"x":"4","y":"12","name":"null","FieldType":"EMPTY_FIELD"},
 {"x":"5","y":"12","name":"null","FieldType":"EMPTY_FIELD"},
-{"x":"6","y":"12","name":"Wytrze?wia?ka","FieldType":"SOBERING_STATION"},
+{"x":"6","y":"12","name":"null","FieldType":"EMPTY_FIELD"},
 {"x":"7","y":"12","name":"null","FieldType":"EMPTY_FIELD"},
 {"x":"8","y":"12","name":"null","FieldType":"ACTION_FIELD"},
 {"x":"9","y":"12","name":"null","FieldType":"ACTION_FIELD"},
