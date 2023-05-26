@@ -1,9 +1,8 @@
 package pl.edu.pwr.bum.simulation.random.events;
 
-import pl.edu.pwr.bum.simulation.app.SimulationStats;
-import pl.edu.pwr.bum.simulation.filedType.FieldType;
+import pl.edu.pwr.bum.simulation.field.type.FieldType;
 
-public class RandomEvent implements Random {
+public class RandomEvent implements Randoms {
     private Integer id;
     private Boolean hasBeen;
     FieldType fieldType;

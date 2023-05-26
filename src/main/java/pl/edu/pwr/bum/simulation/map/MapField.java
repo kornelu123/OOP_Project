@@ -1,8 +1,6 @@
 package pl.edu.pwr.bum.simulation.map;
 
-import pl.edu.pwr.bum.simulation.filedType.FieldType;
-
-import java.util.ArrayList;
+import pl.edu.pwr.bum.simulation.field.type.FieldType;
 
 public class MapField {
     public int id;

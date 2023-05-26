@@ -1,6 +1,5 @@
 package pl.edu.pwr.bum.simulation.app;
 
-import pl.edu.pwr.bum.simulation.filedType.FieldType;
 import pl.edu.pwr.bum.simulation.map.MapArray;
 import pl.edu.pwr.bum.simulation.map.MapField;
 import pl.edu.pwr.bum.simulation.random.events.RandomEvent;
@@ -15,6 +14,7 @@ import java.util.Map;
 public class SimulationStats {
 
     private Integer currentRandomEvent = 1;
+    private Integer MAX_RANDOM_EVENT = 34;
     private Map<Integer,RandomEvent> randomEventMap;
 
     private MapArray map;
@@ -35,49 +35,48 @@ public class SimulationStats {
 
     public int x = 8;
     public int y = 7;
-      
-    public enum FieldType{
-        ACTION_FIELD,
-        EMTPY_FIELD,
-        LIQUOR_STORE,
-        SOBERING_STATION,
-        SLODOWA,
-        NULL
+
+    private void handleTurn() throws InterruptedException {
+        this.kloszard.handleDrunkMeterOperation(40, MainBum.operation.REMOVE);
     }
 
-    public void goUp(){
+    public void goUp() throws InterruptedException {
         if(y == 14){
             this.y--;
         }else {
             this.y++;
         }
+        this.handleTurn();
         this.currentField = map.getCurrentField(this.x,this.y);
     }
 
-    public void goDown(){
+    public void goDown() throws InterruptedException {
         if(y == 0){
             this.y++;
         }else {
             this.y--;
         }
+        this.handleTurn();
         this.currentField = map.getCurrentField(this.x,this.y);
     }
 
-    public void goLeft(){
+    public void goLeft() throws InterruptedException {
         if(x == 0){
             this.x++;
         }else {
             this.x--;
         }
+        this.handleTurn();
         this.currentField = map.getCurrentField(this.x,this.y);
     }
 
-    public void goRight(){
+    public void goRight() throws InterruptedException {
         if(x == 14){
             this.x--;
         }else {
             this.x++;
         }
+        this.handleTurn();
         this.currentField = map.getCurrentField(this.x,this.y);
     }
 
@@ -86,15 +85,10 @@ public class SimulationStats {
     }
 
     public void handleActionField(){
-        RandomEvent randomEvent = randomEventMap.get(currentRandomEvent);
+        RandomEvent randomEvent = randomEventMap.get(currentRandomEvent%MAX_RANDOM_EVENT);
         this.kloszard.handleBottlesCountOperation(randomEvent.bottleCount, MainBum.operation.ADD);
         currentRandomEvent++;
     }
-
-    public void handleBumDirection (){
-
-    }
-
     static public SimulationStats initSimStats(String name, int strength, int drunkMeter, Long amoutOfBottles) throws FileNotFoundException {
         List<RandomEvent> randomEventsJSON = RandomEventParser.parseJSONFile();
         HashMap<Integer,RandomEvent> randomEventMap = new HashMap<Integer,RandomEvent>();
