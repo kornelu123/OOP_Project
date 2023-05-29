@@ -1,0 +1,131 @@
+[
+    {
+     "bottles": 2,
+     "description": "Dobroczyńca Mietek dał piątaka na dwa piwka."
+    },
+    {
+     "bottles": -4,
+     "description": "Ojoj starciłem równowagę i czteropak harnasia się rozbił. Następnym razem trzeba kupić w puszkach."
+    },
+    {
+     "bottles": 1,
+     "description": "dwa złote znalezione nie kradzione!"
+    },
+    {
+     "bottles": -2,
+     "description": "Orzeł oddawaj mi piwo!!!"
+    },
+    {
+     "bottles": 1,
+     "description": "Romek z kolegą się nie napijesz jak daje?",
+     "response": ["Nie da się odmówić", "Nie chcę tej wody"] ,
+    },
+    {
+     "bottles": 5,
+     "description": "Metalowa krata, nikt nie zauważy biorę "
+    },
+    {
+     "bottles": -1,
+     "description": "Ojoj rozlałem "
+    },
+    {
+     "bottles": 1,
+     "description": "Piston Dawaj borwixa, wczoraj ci życie uratowałem nie pamiętasz?",
+     "response": ["Nie ale masz kolego", "Nic cie nie dam!!!"],
+    },
+    {
+     "bottles": 9,
+     "description": "Pisoton pamiętasz ławkę z przystsnku koło biedronki? Ona była metalowa, bierzemy ?",
+     "response": ["Oczywiście", "Zgłupiałes to za dużo roboty "],
+    },
+    {
+     "bottles": -2,
+     "description": "Nie chcę tego nosić, schowam pod ławką na pewno nikt nie zabierze"
+    },
+    {
+     "bottles": 1,
+     "description": "I cyk 2 złote znalezione"
+    },
+    {
+     "bottles": 2,
+     "description": "Panie kierowniku daj pięć złoty na bułeczki i masełko dla potrzebującego ",
+     "response": ["Proszę bardzo", "Oszalałeś ochlejusie?!"],
+    },
+    {
+     "bottles": 1,
+     "description": "Ma się tego magistra to się potrafi coś rozebrać i tak złożyć żeby zostały części na sprzedaż"
+    },
+    {
+     "bottles": -1,
+     "description": "Studenta piwkiem to poratuję pamiętam jak to było ciężko w dziewiędziesiątym piątym na pwr"
+    },
+    {
+     "bottles": 8,
+     "description": "Wygrana na loterii dwadzieścia złoty wleciało za zbieranie butelek"
+    },
+    {
+     "bottles": 2,
+     "description": "Szanowny panie kierowniku na flaszeczkę pan da ?",
+     "response": ["a masz pij!!!", "…"],
+    },
+    {
+     "bottles": 7,
+     "description": "Skup butelek mamy to!!!!"
+    },
+    {
+     "bottles": -10,
+     "description": "Jeszcze sto metrów do skupy, dam radę. Oj kymbyrymby i butelki pobite"
+    },
+    {
+     "bottles": -1,
+     "description": "Orzeł w nagrodę browix dla ciebie"
+    },
+    {
+     "bottles": 2,
+     "description": "Panie władzo ale piwo w miejscu publicznym? Nieeee ja nic nie mam",
+     "response": ["Udam że nic nie widziałem", "Za to będzie mandacik…"],
+    },
+    {
+     "bottles": 1,
+     "description": "Szybko puste buteleczki zdam i kupię jednego browixa"
+    },
+    {
+     "bottles": 1,
+     "description": "Piwo piwo piwo!!! Znalezione nie kradzione"
+    },
+    {
+     "bottles": 1,
+     "description": "Orzeł czy Romek komu powiedzieć o biznesie?"
+    },
+    {
+     "bottles": 4,
+     "description": "Ja kibicem Śląska jestem proszę nie bić!!!",
+     "response": ["Ooo to przepraszam towarzyszu", "A ja Legi gagatku"],
+    },
+    {
+     "bottles": -4,
+     "description": "Ahh trzeba się dobrze napić"
+    },
+    {
+     "bottles": -2,
+     "description": "Dwa miesiące ciągu alkoholowego!! No teraz to nie mogę wytrzeźwieć "
+    },
+    {
+     "bottles": -2,
+     "description": "Na jedną nużkę i drugą nużkę "
+    },
+    {
+     "bottles": 1,
+     "description": "Orzeł za twoje zdrowie",
+     "response": ["Orzeł stawia dobrym kolegą", "Ale stawiasz?"],
+     "Column4": 
+    },
+    {
+     "bottles": -1,
+     "description": "Romek po maluszku?"
+    },
+    {
+     "bottles": -1,
+     "description": "Dwunasta godzina i jeszcze nie było piwka !!! "
+    }
+]
