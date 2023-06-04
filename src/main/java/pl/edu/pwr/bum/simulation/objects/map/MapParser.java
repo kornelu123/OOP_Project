@@ -1,10 +1,10 @@
-package pl.edu.pwr.bum.simulation.map;
+package pl.edu.pwr.bum.simulation.objects.map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import pl.edu.pwr.bum.simulation.field.type.FieldType;
+import pl.edu.pwr.bum.simulation.objects.type.FieldType;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static pl.edu.pwr.bum.simulation.field.type.FieldTypeParser.fieldTypeParser;
+import static pl.edu.pwr.bum.simulation.objects.type.FieldTypeParser.fieldTypeParser;
 
 
 public class MapParser {

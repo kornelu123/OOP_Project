@@ -1,14 +1,24 @@
-package pl.edu.pwr.bum.simulation.unit;
+package pl.edu.pwr.bum.simulation.objects;
 
-import pl.edu.pwr.bum.simulation.random.events.animation.DrinkBeerAnimation;
+import pl.edu.pwr.bum.simulation.objects.events.animation.DrinkBeerAnimation;
 
-public class MainBum extends Bum{
+public class MainBum {
+    public final String name;
+    final Long strength;
     private Long drunkMeter;
     private Long bottlesCount;
-    public MainBum(String name, int strength,Long drunkMeter, Long amountOfBottles) {
-        super(name, (long) strength);
+    private boolean skipAnimation;
+    private Long drankBeers;
+
+    public void skipAnimation(){
+        this.skipAnimation = true;
+    }
+    public MainBum(String name, long strength,Long drunkMeter, Long amountOfBottles , Integer amountOfTurnBottlesCountDecrease) {
         this.drunkMeter = drunkMeter;
         this.bottlesCount = amountOfBottles;
+        this.name = name;
+        this.strength = strength;
+        this.drankBeers = 0L ;
     }
 
     public Long getDrunkMeter(){
@@ -22,6 +32,9 @@ public class MainBum extends Bum{
     public void handleDrunkMeterOperation(int howMuch, MainBum.operation operation) throws InterruptedException {
         switch(operation){
             case ADD -> {
+                if(this.drunkMeter + howMuch > 1000){
+                    break;
+                }
                 this.drunkMeter += howMuch;
                 break;
             }
@@ -36,22 +49,18 @@ public class MainBum extends Bum{
         }
     }
 
+    public Long getAmountOfBeersDrank(){
+        return this.drankBeers;
+    }
+
     public void handleBottlesCountOperation(Long howMuch, MainBum.operation operation){
         switch(operation){
             case ADD -> {
-                if(this.bottlesCount + howMuch >= this.strength){
+                if (this.bottlesCount + howMuch >= this.strength) {
                     this.bottlesCount = (Long) this.strength;
                     break;
                 }
                 this.bottlesCount += howMuch;
-                break;
-            }
-            case REMOVE -> {
-                if(this.bottlesCount - howMuch <= 0){
-                    this.bottlesCount = 0L;
-                    break;
-                }
-                this.bottlesCount -= howMuch;
                 break;
             }
             default -> {
@@ -63,9 +72,16 @@ public class MainBum extends Bum{
     }
 
     public void buyMaxAmountOfPiwo() throws InterruptedException {
-        this.handleDrunkMeterOperation((int) (this.bottlesCount*100),operation.ADD);
+        if(this.bottlesCount == 0){
+            return;
+        }
+        this.drankBeers += this.bottlesCount;
+        this.handleDrunkMeterOperation((int) (this.bottlesCount*50),operation.ADD);
         DrinkBeerAnimation beerAnimation = new DrinkBeerAnimation();
         this.bottlesCount = 0L;
+        if(skipAnimation){
+            return;
+        }
         beerAnimation.printAnimation();
     }
 

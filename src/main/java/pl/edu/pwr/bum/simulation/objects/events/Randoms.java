@@ -1,4 +1,4 @@
-package pl.edu.pwr.bum.simulation.random.events;
+package pl.edu.pwr.bum.simulation.objects.events;
 
 public interface Randoms {
 

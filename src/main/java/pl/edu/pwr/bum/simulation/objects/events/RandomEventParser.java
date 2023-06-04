@@ -1,4 +1,4 @@
-package pl.edu.pwr.bum.simulation.random.events;
+package pl.edu.pwr.bum.simulation.objects.events;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -11,9 +11,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import pl.edu.pwr.bum.simulation.field.type.FieldType;
+import pl.edu.pwr.bum.simulation.objects.type.FieldType;
 
-import static pl.edu.pwr.bum.simulation.field.type.FieldTypeParser.fieldTypeParser;
+import static pl.edu.pwr.bum.simulation.objects.type.FieldTypeParser.fieldTypeParser;
 
 public class RandomEventParser {
 
@@ -38,20 +38,14 @@ public class RandomEventParser {
         List<RandomEvent> randomEventList = new ArrayList<RandomEvent>();
 
         Iterator<JSONObject> iterator = jsonArray.iterator();
+        int id=0;
         while(iterator.hasNext()){
             JSONObject jsonObject = iterator.next();
-            Long id =  (Long) jsonObject.get("id");
-            boolean hasBeen = booleanParser((String) jsonObject.get("hasBeen"));
-            FieldType fieldType = fieldTypeParser((String) jsonObject.get("fieldType"));
             String description = (String) jsonObject.get("description");
-            Long bottleAmount = (Long) jsonObject.get("bottleCount");
-            System.out.println(fieldType);
-            if(fieldType == FieldType.NULL){
-                System.out.println("Bad JSON file , ID : " + id);
-                break;
-            }
-            RandomEvent randomEvent = new RandomEvent(Math.toIntExact(id), hasBeen, fieldType, description, bottleAmount);
+            Long bottleAmount = (Long) jsonObject.get("bottles");
+            RandomEvent randomEvent = new RandomEvent(id,description, bottleAmount);
             randomEventList.add(randomEvent);
+            id++;
         }
         return randomEventList;
     }
