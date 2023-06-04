@@ -1,4 +1,4 @@
-package pl.edu.pwr.bum.simulation.table;
+package pl.edu.pwr.bum.simulation.user.interfaces;
 
 import com.acidmanic.consoletools.drawing.AsciiBorders;
 import com.acidmanic.consoletools.table.Table;

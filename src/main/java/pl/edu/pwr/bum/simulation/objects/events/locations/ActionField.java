@@ -1,5 +1,5 @@
-package pl.edu.pwr.bum.simulation.stats.locations;
-import pl.edu.pwr.bum.simulation.field.type.FieldType;
+package pl.edu.pwr.bum.simulation.objects.events.locations;
+import pl.edu.pwr.bum.simulation.objects.type.FieldType;
 
 public class ActionField implements Location{
     private final FieldType fieldType = FieldType.ACTION_FIELD;

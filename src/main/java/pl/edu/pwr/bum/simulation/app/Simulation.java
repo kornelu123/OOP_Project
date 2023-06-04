@@ -1,4 +1,4 @@
-package pl.edu.pwr.bum.simulation;
+package pl.edu.pwr.bum.simulation.app;
 
 public class Simulation {
 

@@ -1,6 +1,6 @@
-package pl.edu.pwr.bum.simulation.map;
+package pl.edu.pwr.bum.simulation.objects.map;
 
-import pl.edu.pwr.bum.simulation.field.type.FieldType;
+import pl.edu.pwr.bum.simulation.objects.type.FieldType;
 
 public class MapField {
     public int id;

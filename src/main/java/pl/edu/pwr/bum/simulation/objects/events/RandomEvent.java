@@ -1,6 +1,6 @@
-package pl.edu.pwr.bum.simulation.random.events;
+package pl.edu.pwr.bum.simulation.objects.events;
 
-import pl.edu.pwr.bum.simulation.field.type.FieldType;
+import pl.edu.pwr.bum.simulation.objects.type.FieldType;
 
 public class RandomEvent implements Randoms {
     private Integer id;
@@ -11,10 +11,8 @@ public class RandomEvent implements Randoms {
     public Long bottleCount;
 
 
-    public RandomEvent(Integer id, Boolean hasBeen, FieldType fieldType, String description,Long bottleCount) {
+    public RandomEvent(Integer id,String description,Long bottleCount) {
         this.id = id;
-        this.hasBeen = hasBeen;
-        this.fieldType = fieldType;
         this.description = description;
         this.bottleCount = bottleCount;
     }

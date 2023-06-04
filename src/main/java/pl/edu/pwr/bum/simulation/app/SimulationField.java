@@ -1,6 +1,6 @@
-package pl.edu.pwr.bum.simulation;
+package pl.edu.pwr.bum.simulation.app;
 
-import pl.edu.pwr.bum.simulation.stats.locations.Location;
+import pl.edu.pwr.bum.simulation.objects.events.locations.Location;
 import java.util.List;
 
 public class SimulationField {

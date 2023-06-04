@@ -1,52 +1,61 @@
 package pl.edu.pwr.bum.simulation.app;
-import pl.edu.pwr.bum.simulation.field.type.FieldType;
-import pl.edu.pwr.bum.simulation.random.events.animation.Animation;
-import pl.edu.pwr.bum.simulation.table.TableHandler;
+import pl.edu.pwr.bum.simulation.objects.type.FieldType;
+import pl.edu.pwr.bum.simulation.user.interfaces.TableHandler;
 
 import java.io.IOException;
 import java.util.Random;
 
 public class Application {
     public static void main(String[] args) throws IOException, InterruptedException {
+        String name = args[0];
+        Integer strength =  Integer.parseInt(args[1]);
+        Integer drunkMeter = Integer.parseInt(args[2]);
+        Long amountOfBottles = Long.valueOf(args[3]);
+        Integer milisToSleep = Integer.valueOf(args[4]);
+        Integer bottlesDecrease = Integer.valueOf(args[5]);
         Random rand = new Random();
-        SimulationStats simStat = SimulationStats.initSimStats("zulas",50,300, 2L);
+        SimulationStats simStat = SimulationStats.initSimStats(name,strength,drunkMeter, amountOfBottles ,bottlesDecrease);
+        if(milisToSleep < 1000){
+            simStat.kloszard.skipAnimation();
+        }
         Integer turns = 0;
-        while(simStat.kloszard.getDrunkMeter() >= 0) {
+        while(simStat.kloszard.getDrunkMeter() > 0) {
             turns++;
-            if(simStat.currentField.fieldType == FieldType.EMTPY_FIELD){
+            if(simStat.currentField.fieldType == FieldType.EMTPY_FIELD && (milisToSleep != 0)){
                 TableHandler.printStatsTableNoRandomEvent(simStat);
             }else if(simStat.currentField.fieldType == FieldType.LIQUOR_STORE){
-                TableHandler.printStatsTableLiquorStore(simStat);
+                if(milisToSleep != 0) {
+                    TableHandler.printStatsTableLiquorStore(simStat);
+                }
                 simStat.handleLiquorStore();
             }else if(simStat.currentField.fieldType == FieldType.ACTION_FIELD){
-                TableHandler.printStatsTable(simStat);
+                if(milisToSleep != 0){
+                    TableHandler.printStatsTable(simStat);
+                }
                 simStat.handleActionField();
             }
-            System.out.println(simStat.kloszard.getBottlesCount());
-            while(true){
                 int random = rand.nextInt(4);
-                Thread.sleep(3000);
+                Thread.sleep(milisToSleep);
                 if(random == 0){
                     simStat.goUp();
-                    break;
                 }
                 if(random == 1){
                     simStat.goLeft();
-                    break;
                 }
                 if(random == 2){
                     simStat.goDown();
-                    break;
                 }
                 if(random == 3){
                     simStat.goRight();
-                    break;
                 }
-                System.out.println("Bad input , try again");
-            }
             Animation.cleanScreen();
         }
         System.out.println(simStat.kloszard.name + " jest trzezwy , symulacja sie konczy\n");
-        System.out.println("Dlugosc symulacji " + turns + " kolejek\n");
+        System.out.println("Dlugosc symulacji w kolejkach :" + turns + "\n");
+        System.out.println("Ilosc wypitych piw : "+ simStat.kloszard.getAmountOfBeersDrank() + "\n");
+    }
+
+    public void parseArgs(String[] args){
+
     }
 }

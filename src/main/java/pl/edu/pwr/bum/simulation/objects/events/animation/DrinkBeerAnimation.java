@@ -1,9 +1,9 @@
-package pl.edu.pwr.bum.simulation.random.events.animation;
+package pl.edu.pwr.bum.simulation.objects.events.animation;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class DrinkBeerAnimation implements Animation {
+public class DrinkBeerAnimation extends  Animation{
 
     private ArrayList<String> beerAnimation = new ArrayList<String>();
 

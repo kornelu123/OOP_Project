@@ -1,4 +1,4 @@
-package pl.edu.pwr.bum.simulation.field.type;
+package pl.edu.pwr.bum.simulation.objects.type;
 
 public class FieldTypeParser {
     public static FieldType fieldTypeParser(String fieldTypeString) {
