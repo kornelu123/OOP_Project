@@ -1,4 +1,5 @@
 package pl.edu.pwr.bum.simulation.app;
+import pl.edu.pwr.bum.simulation.objects.events.animation.Animation;
 import pl.edu.pwr.bum.simulation.objects.type.FieldType;
 import pl.edu.pwr.bum.simulation.user.interfaces.TableHandler;
 
@@ -33,6 +34,11 @@ public class Application {
                     TableHandler.printStatsTable(simStat);
                 }
                 simStat.handleActionField();
+            } else if(simStat.currentField.fieldType == FieldType.SOBERING_STATION){
+                if(milisToSleep != 0){
+                    TableHandler.printStatsTableSoberingStation(simStat);
+                }
+                simStat.handleSoberingStationField();
             }
                 int random = rand.nextInt(4);
                 Thread.sleep(milisToSleep);
