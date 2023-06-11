@@ -53,6 +53,9 @@ public class SimulationStats {
     public void handleLiquorStore() throws InterruptedException {
         this.kloszard.buyMaxAmountOfPiwo();
     }
+    public void handleSoberingStationField() throws  InterruptedException {
+        this.kloszard.soberingStation();
+    }
 
     public Field getCurrentField(){
         return this.currentField;
@@ -124,6 +127,7 @@ public class SimulationStats {
         RandomEvent randomEvent = getRandomEvent();
         this.kloszard.handleBottlesCountOperation(randomEvent.bottleCount, MainBum.operation.ADD);
         currentRandomEvent++;
+
     }
     static public SimulationStats initSimStats(String name, int strength, int drunkMeter, Long amoutOfBottles, Integer bottlesDecrease,Integer milisToSleep) throws FileNotFoundException {
         List<RandomEvent> randomEventsJSON = RandomEventParser.parseJSONFile();

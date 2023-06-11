@@ -12,10 +12,10 @@ public class TableHandler {
             .tableBorder(AsciiBorders.BOLD)  /* set a BOLD border for table itself */
             .cell(simStats.getRandomEvent().description).maximumWidth(50)       /* add a cell with string content, (by default first row has been added) */
             .border()                        /* set default border for the cell */
+            .row().cell((simStats.getRandomEvent().bottleCount > 0 ? "Ilość butelek zdobytych:  " : "Ilość butelek utraconych:  ") +String.valueOf(simStats.getRandomEvent().bottleCount)).maximumWidth(50)
             .row().cell(String.valueOf("DrunkMeter : "+ simStats.kloszard.getDrunkMeter()+" / 1000")).border(AsciiBorders.DOUBLELINE) /* add new row to main table, then add a text cell with DOUBLELINE borders.*/
             .cell("BottleCount : "+ simStats.kloszard.getBottlesCount()).border(AsciiBorders.BOLD)                  /* add another text cell to the row with BOLD border */
             .cell("Name : "+simStats.kloszard.name).border(AsciiBorders.SOLID)           /* add third text cell to the row with SOLID (default) border.*/
-            .row().cell((TableBuilder builder) -> builder.table(new String[][] {{"X", String.valueOf(simStats.getCurrentField().getX()-1),String.valueOf(simStats.getCurrentField().getX()),String.valueOf(simStats.getCurrentField().getX()+1)},{String.valueOf(simStats.getCurrentField().getY()-1),"","W" ,""},{String.valueOf(simStats.getCurrentField().getY()),"A", simStats.getCurrentField().getName(),"D"},{String.valueOf(simStats.getCurrentField().getY()+1),"","S",""}}).borderAll().padAll(5, 1).tableBorder())
             .build();                       /* build main table*/
 
         System.out.println(table.render());
@@ -25,10 +25,8 @@ public class TableHandler {
                 .tableBorder(AsciiBorders.BOLD)  /* set a BOLD border for table itself */
                 .cell().maximumWidth(50)       /* add a cell with string content, (by default first row has been added) */
                 .border()                        /* set default border for the cell */
-                .row().cell(String.valueOf("DrunkMeter : "+ simStats.kloszard.getDrunkMeter()+" / 1000")).border(AsciiBorders.DOUBLELINE) /* add new row to main table, then add a text cell with DOUBLELINE borders.*/
+                .row().cell(String.valueOf("DrunkMeter : "+ simStats.kloszard.getDrunkMeter()+" / 1000")).border(AsciiBorders.BOLD) /* add new row to main table, then add a text cell with DOUBLELINE borders.*/
                 .cell("BottleCount : "+ simStats.kloszard.getBottlesCount()).border(AsciiBorders.BOLD)                  /* add another text cell to the row with BOLD border */
-                .cell("Name : "+simStats.kloszard.name).border(AsciiBorders.SOLID)           /* add third text cell to the row with SOLID (default) border.*/
-                .row().cell((TableBuilder builder) -> builder.table(new String[][] {{"X", String.valueOf(simStats.getCurrentField().getX()-1),String.valueOf(simStats.getCurrentField().getX()),String.valueOf(simStats.getCurrentField().getX()+1)},{String.valueOf(simStats.getCurrentField().getY()-1),"","W" ,""},{String.valueOf(simStats.getCurrentField().getY()),"A", simStats.getCurrentField().getName(),"D"},{String.valueOf(simStats.getCurrentField().getY()+1),"","S",""}}).borderAll().padAll(5, 1).tableBorder())
                 .build();                       /* build main table*/
 
         System.out.println(table.render());
@@ -41,7 +39,6 @@ public class TableHandler {
                 .row().cell(String.valueOf("DrunkMeter : "+ simStats.kloszard.getDrunkMeter()+" / 1000")).border(AsciiBorders.DOUBLELINE) /* add new row to main table, then add a text cell with DOUBLELINE borders.*/
                 .cell("BottleCount : "+ simStats.kloszard.getBottlesCount()).border(AsciiBorders.BOLD)                  /* add another text cell to the row with BOLD border */
                 .cell("Name : "+simStats.kloszard.name).border(AsciiBorders.SOLID)           /* add third text cell to the row with SOLID (default) border.*/
-                .row().cell((TableBuilder builder) -> builder.table(new String[][] {{"X", String.valueOf(simStats.getCurrentField().getX()-1),String.valueOf(simStats.getCurrentField().getX()),String.valueOf(simStats.getCurrentField().getX()+1)},{String.valueOf(simStats.getCurrentField().getY()-1),"","W" ,""},{String.valueOf(simStats.getCurrentField().getY()),"A", simStats.getCurrentField().getName(),"D"},{String.valueOf(simStats.getCurrentField().getY()+1),"","S",""}}).borderAll().padAll(5, 1).tableBorder())
                 .build();                       /* build main table*/
 
         System.out.println(table.render());
