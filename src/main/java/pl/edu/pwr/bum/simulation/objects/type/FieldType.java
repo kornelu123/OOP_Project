@@ -4,5 +4,6 @@ public enum FieldType {
     ACTION_FIELD,
     EMTPY_FIELD,
     SOBERING_STATION,
-    EMPTY_FIELD, NULL, SLODOWA, LIQUOR_STORE
+    LIQUOR_STORE,
+    NULL
 }
