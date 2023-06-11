@@ -1,18 +1,21 @@
 package pl.edu.pwr.bum.simulation.objects.map;
 
+import pl.edu.pwr.bum.simulation.objects.location.Field;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MapArray {
-    private ArrayList<MapField> map;
+    private ArrayList<Field> map;
 
     public MapArray() throws FileNotFoundException {
-        this.map = (ArrayList<MapField>) MapParser.parseJSONFile();
+        this.map = (ArrayList<Field>) MapParser.parseJSONFile();
     }
 
-    public MapField getCurrentField(int x , int y){
+    public Field getCurrentField(int x , int y){
         int spec = x + 15*y;
-        MapField currentField = map.get(spec);
+        Field currentField = map.get(spec);
         return currentField;
     }
 }
