@@ -54,10 +54,13 @@ public class MainBum {
     }
 
     public void handleBottlesCountOperation(Long howMuch, MainBum.operation operation){
-        switch(operation){
+        switch(operation) {
             case ADD -> {
                 if (this.bottlesCount + howMuch >= this.strength) {
                     this.bottlesCount = (Long) this.strength;
+                    break;
+                } else if (this.bottlesCount + howMuch < 0) {
+                    this.bottlesCount = 0L;
                     break;
                 }
                 this.bottlesCount += howMuch;
@@ -87,5 +90,9 @@ public class MainBum {
 
     public Long getBottlesCount(){
         return this.bottlesCount;
+    }
+    public void soberingStation() throws InterruptedException {
+        this.bottlesCount = 0L;
+        this.drunkMeter -= 80;
     }
 }
