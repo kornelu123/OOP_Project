@@ -19,7 +19,7 @@ public class RandomEventParser {
 
     public static List<RandomEvent> parseJSONFile() throws FileNotFoundException {
         JSONParser parser = new JSONParser();
-        Path path = Path.of("src/main/java/pl/edu/pwr/bum/simulation/resources/randomEvents.json");
+        Path path = Path.of("src/main/java/resources/randomEvents.json");
         File jsonFile = new File(path.toUri());
         JSONArray jsonArray = null;
         try (Reader reader = new FileReader(jsonFile)) {

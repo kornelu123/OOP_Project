@@ -1,7 +1,7 @@
 package pl.edu.pwr.bum.simulation.app;
 
+import pl.edu.pwr.bum.simulation.objects.location.Field;
 import pl.edu.pwr.bum.simulation.objects.map.MapArray;
-import pl.edu.pwr.bum.simulation.objects.map.MapField;
 import pl.edu.pwr.bum.simulation.objects.events.RandomEvent;
 import pl.edu.pwr.bum.simulation.objects.events.RandomEventParser;
 import pl.edu.pwr.bum.simulation.objects.MainBum;
@@ -18,17 +18,36 @@ public class SimulationStats {
     private Integer MAX_RANDOM_EVENT = 29;
     private Map<Integer,RandomEvent> randomEventMap;
 
+    private Integer milisToSleep;
     private MapArray map;
 
     public MainBum kloszard;
 
-    public MapField currentField ;
-    public SimulationStats(Map<Integer, RandomEvent> randomEventMap, MainBum kloszard,Integer decreaseAmount) throws FileNotFoundException {
+    private Field currentField ;
+    private Integer turnCount;
+    public SimulationStats(Map<Integer, RandomEvent> randomEventMap, MainBum kloszard,Integer decreaseAmount,Integer milisToSleep) throws FileNotFoundException {
         this.map = new MapArray();
         this.currentField = map.getCurrentField(this.x, this.y);
         this.randomEventMap = randomEventMap;
         this.kloszard = kloszard;
         this.decreaseAmount = decreaseAmount;
+        this.milisToSleep = milisToSleep;
+        if(this.milisToSleep <= 100){
+            this.kloszard.skipAnimation();
+        }
+        this.turnCount = 0;
+    }
+
+    public void incrementTurnCount(){
+        this.turnCount++;
+    }
+
+    public Integer getTurnCount(){
+        return this.turnCount;
+    }
+
+    public Integer getMilisToSleep(){
+        return milisToSleep;
     }
 
     public void handleLiquorStore() throws InterruptedException {
@@ -36,6 +55,21 @@ public class SimulationStats {
     }
     public void handleSoberingStationField() throws  InterruptedException {
         this.kloszard.soberingStation();
+    }
+
+    public Field getCurrentField(){
+        return this.currentField;
+    }
+
+    static public SimulationStats handleArgs(String [] args) throws FileNotFoundException {
+        String name = args[0];
+        Integer strength =  Integer.parseInt(args[1]);
+        Integer drunkMeter = Integer.parseInt(args[2]);
+        Long amountOfBottles = Long.valueOf(args[3]);
+        Integer milisToSleep = Integer.valueOf(args[4]);
+        Integer bottlesDecrease = Integer.valueOf(args[5]);
+        SimulationStats simStat = SimulationStats.initSimStats(name,strength,drunkMeter, amountOfBottles ,bottlesDecrease, milisToSleep);
+        return simStat;
     }
 
     public int x = 8;
@@ -95,7 +129,7 @@ public class SimulationStats {
         currentRandomEvent++;
 
     }
-    static public SimulationStats initSimStats(String name, int strength, int drunkMeter, Long amoutOfBottles, Integer bottlesDecrease) throws FileNotFoundException {
+    static public SimulationStats initSimStats(String name, int strength, int drunkMeter, Long amoutOfBottles, Integer bottlesDecrease,Integer milisToSleep) throws FileNotFoundException {
         List<RandomEvent> randomEventsJSON = RandomEventParser.parseJSONFile();
         HashMap<Integer,RandomEvent> randomEventMap = new HashMap<Integer,RandomEvent>();
         for (RandomEvent randomEvent: randomEventsJSON) {
@@ -103,7 +137,7 @@ public class SimulationStats {
         }
         MainBum kloszard = new MainBum(name,strength, (long) drunkMeter,amoutOfBottles,bottlesDecrease);
         MapArray map = new MapArray();
-        SimulationStats simStat = new SimulationStats(randomEventMap,kloszard,bottlesDecrease);
+        SimulationStats simStat = new SimulationStats(randomEventMap,kloszard,bottlesDecrease,milisToSleep);
         return simStat;
     }
 

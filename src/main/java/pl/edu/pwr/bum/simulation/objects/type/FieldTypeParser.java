@@ -8,9 +8,6 @@ public class FieldTypeParser {
         if(fieldTypeString.equals("EMPTY_FIELD")){
             return FieldType.EMTPY_FIELD;
         }
-        if(fieldTypeString.equals("SLODOWA")){
-            return FieldType.SLODOWA;
-        }
         if(fieldTypeString.equals("LIQUOR_STORE")){
             return FieldType.LIQUOR_STORE;
         }
